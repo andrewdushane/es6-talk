@@ -17,7 +17,6 @@ Write more concise, easier-to-read and easier-to-maintain code
 
 `let`   - reassignable, but scopes like a normal (non-JavaScript) variable
 
-
 Block scoping - no global-scope var weirdness
 
 Borrowed from MDN:
@@ -46,7 +45,6 @@ function letTest() {
 
 ## Arrow Functions
 
-
 Before:
 
 ```
@@ -57,14 +55,47 @@ var addKnownAndUnknown = function addKnownAndUnknown(x) {
 }
 ```
 
-
 Now:
 
 `const addKnownAndUnknown = x => y => x + y;`
 
 Functions-as-arguments that you can read  
 
+```
+items.forEach(function(item) {
+  console.log(item);
+})
+```  
+Becomes  
+
 `items.forEach(item => console.log(item))`
+
+---
+
+## Arrow Functions continued
+
+Ever done this?
+
+```
+someElement.on('click', function(e) {
+  e.preventDefault();
+  var that = this;
+  doSomeAsyncThing().then(function(result) {
+    doSomethingWith(result, that);
+  })
+})
+```
+
+ugh.
+
+With arrow functions, `this` continues to be the `this` of the parent
+
+```
+someElement.on('click', e => {
+  e.preventDefault();
+  doSomeAsyncThing().then(result => doSomethingWith(result, this));
+})
+```
 
 ---
 
@@ -110,6 +141,31 @@ const totalWithTax = (price = 50) => price * 1.08;
 
 ---
 
+## Default Parameter Values continued
+
+Nested defaults with destructuring
+
+```
+const processPurchase = ({
+  discount = 0,
+  shipping = 5,
+  item: {
+    price = 50,
+    weight = 1,
+    name
+  },
+  customer: {
+    name: customerName,
+    address
+  }
+}) => {
+  ...
+}
+
+```
+
+---
+
 ## Object Literal Shorthand
 
 
@@ -136,7 +192,7 @@ const listItems = {
 
 ---
 
-## Template Literals and string interpolation
+## Template Literals and String Interpolation
 
 
 Before:
@@ -190,11 +246,12 @@ class Animal {
 
 ```
 class Dog extends Animal {
+
   constructor(args) {
     super(args);
     this.abilities = [...this.abilities, 'companionate'];
-
   }
+
   bark() {
     console.log('woof, woof');
   }
@@ -249,6 +306,32 @@ const me = {
 const { name, dateOfBirth, ...rest } = me;  
 
 doSomethingWithThisInfoAboutMe(rest);
+```
+
+---
+
+## Object Spread continued
+
+Combine objects (without mutating the originals)
+
+```
+const newObj = {
+  ...obj1,
+  ...obj2,
+  foo: 'bar'
+};
+```
+
+Pluck keys
+
+```
+const {
+  onClick,
+  onBlur,
+  onFocus,
+  ...nonEventHandlers
+} = elementProperties;  
+// nonEventHandlers -> { id, name, className, etc }
 ```
 
 ---
