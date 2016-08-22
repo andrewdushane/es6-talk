@@ -341,6 +341,7 @@ const {
 * [Babel](https://babeljs.io/) Transpile ES6 (and beyond) to widely supported ES5
 * [JSBin](http://jsbin.com/) Play around with ES6
 * [CodePen](http://codepen.io/) Play some more
+* [Node 6 ES6 Support](http://node.green) ES6 in your API
 * [MDN: Promises (ES6)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) Better API for asynchronous requests
 * [Async/Await (Proposal)](https://github.com/yortus/asyncawait) Even better async API
 * [create-react-app](https://github.com/facebookincubator/create-react-app) Up-and-running with Babel and React easily
