@@ -13,5 +13,5 @@
 ## Build Slides
 
 ```bash
-markdown-to-slides es6.md -o docs/index.html -s styles.css -j app.js
+markdown-to-slides es6.md -i -o docs/index.html -s styles.css -j app.js
 ```
