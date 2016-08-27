@@ -1,4 +1,5 @@
-# ES6 And Beyond: The Future Is Now
+# ES6 And Beyond:  
+###The Future Is Now
 
 ### What is ES6?  What is ES2015?  
 
@@ -21,25 +22,30 @@ Block scoping - no global-scope var weirdness
 
 Borrowed from MDN:
 
-```
+```javascript
 function varTest() {
   var x = 1;
   if (true) {
-    var x = 2;  // same variable!
-    console.log(x);  // 2
+    var x = 2;
+    console.log(x);
   }
-  console.log(x);  // 2
+  console.log(x);
 }
+```
+The `x` in the conditional is the `x` outside the conditional
 
+```javascript
 function letTest() {
   let x = 1;
   if (true) {
-    let x = 2;  // different variable
-    console.log(x);  // 2
+    let x = 2;
+    console.log(x);
   }
-  console.log(x);  // 1
+  console.log(x);
 }
 ```
+
+Two different variables
 
 ---
 
@@ -47,7 +53,7 @@ function letTest() {
 
 Before:
 
-```
+```javascript
 var addKnownAndUnknown = function addKnownAndUnknown(x) {
   return function(y) {
     return x + y;
@@ -57,18 +63,22 @@ var addKnownAndUnknown = function addKnownAndUnknown(x) {
 
 Now:
 
-`const addKnownAndUnknown = x => y => x + y;`
+```javascript
+const addKnownAndUnknown = x => y => x + y;
+```
 
 Functions-as-arguments that you can read  
 
-```
+```javascript
 items.forEach(function(item) {
   console.log(item);
 })
 ```  
 Becomes  
 
-`items.forEach(item => console.log(item))`
+```javascript
+items.forEach(item => console.log(item))
+```
 
 ---
 
@@ -76,7 +86,7 @@ Becomes
 
 Ever done this?
 
-```
+```javascript
 someElement.on('click', function(e) {
   e.preventDefault();
   var that = this;
@@ -90,7 +100,7 @@ ugh.
 
 With arrow functions, `this` continues to be the `this` of the parent
 
-```
+```javascript
 someElement.on('click', e => {
   e.preventDefault();
   doSomeAsyncThing().then(result => doSomethingWith(result, this));
@@ -103,7 +113,7 @@ someElement.on('click', e => {
 
 
 Before:
-```
+```javascript
 function makePizza(toppings) {
   var pepperoni = toppings.pepperoni;
   var peppers = toppings.peppers;
@@ -114,7 +124,7 @@ function makePizza(toppings) {
 
 
 Now:
-```
+```javascript
 const makePizza = ({ pepperoni, peppers, tomatoes }) => ...
 ```
 
@@ -124,7 +134,7 @@ const makePizza = ({ pepperoni, peppers, tomatoes }) => ...
 
 
 Before:
-```
+```javascript
 function totalWithTax(price) {
   if (price === undefined) {
     price = 50;
@@ -135,7 +145,7 @@ function totalWithTax(price) {
 
 
 Now:
-```
+```javascript
 const totalWithTax = (price = 50) => price * 1.08;
 ```
 
@@ -145,7 +155,7 @@ const totalWithTax = (price = 50) => price * 1.08;
 
 Nested defaults with destructuring
 
-```
+```javascript
 const processPurchase = ({
   discount = 0,
   shipping = 5,
@@ -170,7 +180,7 @@ const processPurchase = ({
 
 
 Before:
-```
+```javascript
 var listItems = {
   bananas: bananas,
   bread: bread,
@@ -181,7 +191,7 @@ var listItems = {
 
 
 Now:
-```
+```javascript
 const listItems = {
   bananas,
   bread,
@@ -196,7 +206,7 @@ const listItems = {
 
 
 Before:
-```
+```javascript
 var greet = function greet(info) {
   var greeting = 'Hi, my name is ' + info.firstName + '.';
   greeting = greeting + ' I live in ' + info.city + '.';
@@ -206,7 +216,7 @@ var greet = function greet(info) {
 
 
 Now:
-```
+```javascript
 const greet = ({ firstName, city }) => (
   `Hi, my name is ${firstName}. I live in ${city}.`
 );
@@ -217,7 +227,7 @@ const greet = ({ firstName, city }) => (
 ## Classes
 
 (Let's not even talk about before)
-```
+```javascript
 class Animal {
   constructor({ img, name }) {
     this.planet = 'earth';
@@ -244,7 +254,7 @@ class Animal {
 
 ### Extension:
 
-```
+```javascript
 class Dog extends Animal {
 
   constructor(args) {
@@ -273,7 +283,7 @@ Fido.exist();
 ## Array Spread
 
 Before:
-```
+```javascript
 var newArray = oldArray.slice(0, indexOfThingToReplace)
 .concat(newThing)
 .concat(oldArray.slice(indexOfThingToReplace + 1));
@@ -281,7 +291,7 @@ var newArray = oldArray.slice(0, indexOfThingToReplace)
 
 
 Now:
-```
+```javascript
 const newArray = [
   ...oldArray.slice(0, indexOfThingToReplace),
   newthing,
@@ -293,7 +303,7 @@ const newArray = [
 
 ## Object Spread (Stage 2 Proposal)
 
-```
+```javascript
 const me = {
   name,
   age,
@@ -314,7 +324,7 @@ doSomethingWithThisInfoAboutMe(rest);
 
 Combine objects (without mutating the originals)
 
-```
+```javascript
 const newObj = {
   ...obj1,
   ...obj2,
@@ -324,7 +334,7 @@ const newObj = {
 
 Pluck keys
 
-```
+```javascript
 const {
   onClick,
   onBlur,

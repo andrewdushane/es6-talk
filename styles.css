@@ -1,0 +1,123 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+h1, h2, h3 {
+font-weight: 400;
+margin-bottom: 0;
+}
+.remark-slide-content h1 { font-size: 3em; }
+.remark-slide-content h2 { font-size: 2em; }
+.remark-slide-content h3 { font-size: 1.6em; }
+.remark-slide-content {
+  font-size: 16px;
+}
+.footnote {
+position: absolute;
+bottom: 3em;
+}
+li p { line-height: 1.25em; }
+.red { color: #fa0000; }
+.large { font-size: 2em; }
+a, a > code {
+color: rgb(249, 38, 114);
+text-decoration: none;
+}
+code {
+/*background: none repeat scroll 0 0 #F8F8FF;*/
+border: 1px solid #DEDEDE;
+border-radius: 3px 	;
+padding: 0 0.2em;
+}
+.remark-code, .remark-inline-code {
+  font-family: "Bitstream Vera Sans Mono", "Courier", monospace;
+  background: black;
+  color: white;
+  font-size: 16px;
+}
+.remark-code-line-highlighted     { background-color: #373832; }
+.pull-left {
+float: left;
+width: 47%;
+}
+.pull-right {
+float: right;
+width: 47%;
+}
+.pull-right ~ p {
+clear: both;
+}
+#slideshow .slide .content code {
+font-size: 0.8em;
+}
+#slideshow .slide .content pre code {
+font-size: 0.9em;
+padding: 15px;
+}
+.main-title, .title {
+background: #272822;
+color: #777872;
+text-shadow: 0 0 20px #333;
+}
+.title h1, .title h2, .main-title h1, .main-title h2 {
+color: #f3f3f3;
+line-height: 0.8em;
+}
+/* Custom */
+.remark-code {
+display: block;
+padding: 0.5em;
+}
+
+.remark-code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.hljs-comment, .hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag, .hljs-keyword, .hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section, .hljs-name, .hljs-deletion, .hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta-string {
+  color: #98c379;
+}
+
+.hljs-built_in, .hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-title {
+  color: #61aeee;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
