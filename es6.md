@@ -346,6 +346,22 @@ const {
 
 ---
 
+## Up and running with Babel
+
+0. Install [node.js](https://nodejs.org/en/) 
+1. In your command line, `mkdir` a new directory and `cd` into it 
+2. Run `npm init`  
+3. Run `npm install --save-dev babel-cli babel-preset-es2015`  
+4. `touch` a file, we can call it src.js 
+5. Open the directory in your editor of choice 
+6. Write some marvelous ES6 in src.js 
+7. To the `scripts` in package.json, add  
+   `"babel": "babel src.js --presets es2015 -o dist.js"`
+8. `npm run babel`
+9. Check out the transpiled, browser-ready code in dist.js 
+
+---
+
 ## Resources & Further Reading
 
 * [Babel](https://babeljs.io/) Transpile ES6 (and beyond) to widely supported ES5
