@@ -27,25 +27,22 @@ function varTest() {
   var x = 1;
   if (true) {
     var x = 2;
-    console.log(x);
+    console.log(x); /* 2 */
   }
-  console.log(x);
+  console.log(x); /* 2 */
 }
 ```
-The `x` in the conditional is the `x` outside the conditional
 
 ```javascript
 function letTest() {
   let x = 1;
   if (true) {
     let x = 2;
-    console.log(x);
+    console.log(x); /* 2 */
   }
-  console.log(x);
+  console.log(x); /* 1 */
 }
 ```
-
-Two different variables
 
 ---
 
@@ -105,6 +102,15 @@ someElement.on('click', e => {
   e.preventDefault();
   doSomeAsyncThing().then(result => doSomethingWith(result, this));
 })
+```
+
+Implicit return 
+
+```javascript
+const makeAnObject = conditionalThing => ({
+  stuff: coniditionalThing ? 'this stuff' : 'that stuff',
+  thing: conditionalThing,
+});
 ```
 
 ---
@@ -226,18 +232,13 @@ const greet = ({ firstName, city }) => (
 
 ## Classes
 
-(Let's not even talk about before)
 ```javascript
 class Animal {
   constructor({ img, name }) {
-    this.planet = 'earth';
     this.abilities = ['live', 'move', 'grow'];
     this.pic = document.createElement('img');
     this.pic.src = img;
     this.name = name;
-  }
-  exist() {
-    console.log('I\'m alive!');
   }
   greet() {
     console.log(`Hi, I'm ${this.name}`);
@@ -248,34 +249,21 @@ class Animal {
 }
 ```
 
----
-
-## Classes Continued
-
 ### Extension:
 
 ```javascript
 class Dog extends Animal {
-
   constructor(args) {
     super(args);
     this.abilities = [...this.abilities, 'companionate'];
   }
-
-  bark() {
-    console.log('woof, woof');
-  }
-
 }
 
 const Fido = new Dog({
   img: 'http://pics.com/doggy-pic.jpg',
   name: 'Fido'
 });
-
 Fido.render('dog-house');
-
-Fido.exist();
 ```
 
 ---
@@ -301,26 +289,45 @@ const newArray = [
 
 ---
 
+## ES7/ES2016
+
+### Array `.includes`
+
+```javascript
+['x'].includes('x')
+```
+
+This is about the same as:
+
+```javascript
+['x'].indexOf('x') !== -1
+```
+
+With the exception of `NaN`. MM k.
+
+### Exponent operator
+
+```javascript
+2 ** 3 === Math.pow(2, 3) // 8
+```
+
+---
+
 ## Object Spread (Stage 2 Proposal)
 
 ```javascript
-const me = {
+const user = {
   name,
   age,
   dateOfBirth,
   interests,
   occupation,
-  whatever
+  whatever,
 };
 
-const { name, dateOfBirth, ...rest } = me;  
-
-doSomethingWithThisInfoAboutMe(rest);
+const { name, age, dateOfBirth, ...rest } = user;
+// rest == { interests, occupation, whatever }
 ```
-
----
-
-## Object Spread continued
 
 Combine objects (without mutating the originals)
 
@@ -330,18 +337,6 @@ const newObj = {
   ...obj2,
   foo: 'bar'
 };
-```
-
-Pluck keys
-
-```javascript
-const {
-  onClick,
-  onBlur,
-  onFocus,
-  ...nonEventHandlers
-} = elementProperties;  
-// nonEventHandlers -> { id, name, className, etc }
 ```
 
 ---
