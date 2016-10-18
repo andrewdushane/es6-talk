@@ -228,6 +228,18 @@ const greet = ({ firstName, city }) => (
 );
 ```
 
+Use any expression
+
+```javascript 
+`Template literals are ${Math.random() > 0.5 ? 'awesome' : 'amazing'}, right?`
+```
+
+Or 
+
+```javascript
+`Contrived examples r${[...Array(20).keys()].map(i => 'o').join('')}ck!`
+```
+
 ---
 
 ## Classes
@@ -303,12 +315,12 @@ This is about the same as:
 ['x'].indexOf('x') !== -1
 ```
 
-With the exception of `NaN`. MM k.
+With the exception of `NaN` - `includes` will find it, but `indexOf` won't.
 
 ### Exponent operator
 
 ```javascript
-2 ** 3 === Math.pow(2, 3) // 8
+2 ** 3 === Math.pow(2, 3)
 ```
 
 ---
